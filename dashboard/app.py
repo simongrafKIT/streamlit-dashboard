@@ -5,6 +5,7 @@ from matplotlib import rcParams
 import streamlit as st
 from matplotlib.font_manager import fontManager
 from pathlib import Path
+from matplotlib.font_manager import FontProperties
 
 rcParams['font.sans-serif'] = ['SimHei']   
 rcParams['axes.unicode_minus'] = False     
@@ -19,8 +20,10 @@ if str(_parent) not in sys.path:
     sys.path.insert(0, str(_parent))
 
 font_file = Path(__file__).parent / "fonts" / "NotoSansSC-VariableFont_wght.ttf"
-fontManager.addfont(str(font_file))
-plt.rcParams["font.family"] = "Noto Sans SC"
+# Optional: trotzdem registrieren
+# fontManager.addfont(str(font_file))
+fp_reg  = FontProperties(fname=str(font_file), weight=400)  # normal
+fp_bold = FontProperties(fname=str(font_file), weight=700)  # bold
 plt.rcParams["axes.unicode_minus"] = False
 
 
@@ -50,7 +53,7 @@ with col_right:
 
         with tab1:
             df1_f = pills_filters(df_1, key_prefix="t1")
-            plot_maturity(df1_f)
+            plot_maturity(df1_f, fp_bold, fp_reg)
 
         with tab2:
             df1_gap = gap_filters(df_1, key_prefix="t2gap") 

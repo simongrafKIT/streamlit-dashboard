@@ -13,7 +13,7 @@ from dashboard.utils import wrap_text
 
     
 
-def polar_base(categories, dim_map):
+def polar_base(categories, dim_map, fp_bold, fp_reg):
     """Create base polar chart with dimension bands + indicator labels."""
     N = len(categories)
     angles = np.linspace(0, 2*np.pi, N, endpoint=False)
@@ -54,7 +54,7 @@ def polar_base(categories, dim_map):
         else: offset = 0.9
         ax.text(mid, outer_bottom+offset, dim_label,
                 rotation=ang_deg, rotation_mode="anchor",
-                ha="center", va="center", fontsize=9, fontweight="bold", color="black")
+                ha="center", va="center", fontsize=9, fontproperties=fp_bold, color="black")
         start += w
 
     label_r, wrap_w = 4.5, 13
@@ -72,14 +72,14 @@ def _draw_questions(ax, df, cat, theta, sector_w):
         if len(q): ax.text(theta+sector_w/2, level-0.2, wrap_text(q[0], 20),
                            ha="center", va="center", fontsize=5, color="black")
 
-def plot_maturity(df):
+def plot_maturity(df, fp_bold, fp_reg):
 
     plt.rcParams['font.sans-serif'] = ['SimHei']   
     plt.rcParams['axes.unicode_minus'] = False     
 
     dim_map = dict(zip(df["INDICATOR | 指标"], df["DIMENSION | 维度"]))
     cats = df["INDICATOR | 指标"].unique().tolist()
-    fig, ax, angles, sector_w = polar_base(cats, dim_map)
+    fig, ax, angles, sector_w = polar_base(cats, dim_map, fp_bold, fp_reg)
 
     df["RESPONSE_NUMBER"] = (df["RESPONSE_NUMBER"].fillna(-1).astype(int))
 
