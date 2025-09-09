@@ -73,8 +73,7 @@ def _draw_questions(ax, df, cat, theta, sector_w):
                            ha="center", va="center", fontsize=5, color="black")
 
 def plot_maturity(df, fp_bold, fp_reg):
-
-    plt.rcParams['font.sans-serif'] = ['SimHei']   
+    # plt.rcParams['font.sans-serif'] = ['SimHei']   
     plt.rcParams['axes.unicode_minus'] = False     
 
     dim_map = dict(zip(df["INDICATOR | 指标"], df["DIMENSION | 维度"]))
@@ -127,7 +126,7 @@ def plot_maturity(df, fp_bold, fp_reg):
         title="Maturity level | 成熟度水平",
         title_fontsize=9,          
         fontsize=7,                
-        #prop=fontP,               
+        prop=fp_reg,              
         loc="lower center",
         bbox_to_anchor=(0.5, -0.14),
         ncol=3,
@@ -136,7 +135,7 @@ def plot_maturity(df, fp_bold, fp_reg):
         framealpha=0.9,
         borderpad=1.2,
     )
-    
+    leg.get_title().set_fontproperties(fp_bold)
     #leg.get_title().set_fontproperties(fontP)
     #leg.get_frame().set_edgecolor("gray")
 
