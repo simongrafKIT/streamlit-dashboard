@@ -120,7 +120,7 @@ def plot_maturity(df):
 
     legend_handles = base_legend + optional_legend
 
-    fontP = font_manager.FontProperties(family='SimHei')  # optional: size=7
+    #fontP = font_manager.FontProperties(family='SimHei')  # optional: size=7
 
     leg = ax.legend(
         handles=legend_handles,

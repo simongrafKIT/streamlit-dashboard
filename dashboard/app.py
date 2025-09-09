@@ -6,12 +6,12 @@ import streamlit as st
 from matplotlib.font_manager import fontManager
 from pathlib import Path
 
-# rcParams['font.sans-serif'] = ['SimHei']   
-# rcParams['axes.unicode_minus'] = False     
+rcParams['font.sans-serif'] = ['SimHei']   
+rcParams['axes.unicode_minus'] = False     
 
-rcParams["font.family"] = "sans-serif"
-rcParams["font.sans-serif"] = ["Noto Sans CJK SC", "WenQuanYi Zen Hei", "DejaVu Sans"]
-rcParams["axes.unicode_minus"] = False
+# rcParams["font.family"] = "sans-serif"
+# rcParams["font.sans-serif"] = ["Noto Sans CJK SC", "WenQuanYi Zen Hei", "DejaVu Sans"]
+# rcParams["axes.unicode_minus"] = False
 
 _pkg_dir = Path(__file__).resolve().parent        
 _parent  = _pkg_dir.parent                        
