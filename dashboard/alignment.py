@@ -190,7 +190,7 @@ def show_alignment_scatter(df_1: pd.DataFrame, df_3: pd.DataFrame) -> None:
             #title=dict(text="Indicators"),
             orientation="h",
             x=0, xanchor="left",
-            y=-0.18, yanchor="top",
+            y=-0.25, yanchor="top",
             entrywidth=1/3,              # 3 Spalten (jede Legendenkachel = 1/3 Breite)
             entrywidthmode="fraction",   # "fraction" statt Pixel
             font=dict(size=16, color="black"),
