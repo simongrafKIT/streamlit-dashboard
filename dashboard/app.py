@@ -5,49 +5,22 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import streamlit as st
 from matplotlib.font_manager import FontProperties
+from matplotlib.font_manager import fontManager
 # from matplotlib.font_manager import fontManager  # nur nötig, wenn du addfont() verwenden willst
 
 # Falls du KEIN Global-Font setzen willst (empfohlen bei Variable Font):
 # -> Kein rcParams['font.sans-serif'] hier setzen, um Konflikte zu vermeiden
-rcParams['axes.unicode_minus'] = False
+
 
 _pkg_dir = Path(__file__).resolve().parent
 _parent  = _pkg_dir.parent
 if str(_parent) not in sys.path:
     sys.path.insert(0, str(_parent))
 
-# Variable Font -> pro-Text-Steuerung
-font_file = Path(__file__).parent / "fonts" / "NotoSansSC-VariableFont_wght.ttf"
-fp_reg  = FontProperties(fname=str(font_file), weight=400)  # normal
-fp_bold = FontProperties(fname=str(font_file), weight=700)  # bold
-
-# from pathlib import Path
-# import sys
-# import matplotlib as plt
-# from matplotlib import rcParams
-# import streamlit as st
-# from matplotlib.font_manager import fontManager
-# from pathlib import Path
-# from matplotlib.font_manager import FontProperties
-
-# rcParams['font.sans-serif'] = ['SimHei']   
-# rcParams['axes.unicode_minus'] = False     
-
-# # rcParams["font.family"] = "sans-serif"
-# # rcParams["font.sans-serif"] = ["Noto Sans CJK SC", "WenQuanYi Zen Hei", "DejaVu Sans"]
-# # rcParams["axes.unicode_minus"] = False
-
-# _pkg_dir = Path(__file__).resolve().parent        
-# _parent  = _pkg_dir.parent                        
-# if str(_parent) not in sys.path:
-#     sys.path.insert(0, str(_parent))
-
-# font_file = Path(__file__).parent / "fonts" / "NotoSansSC-VariableFont_wght.ttf"
-# # Optional: trotzdem registrieren
-# # fontManager.addfont(str(font_file))
-# fp_reg  = FontProperties(fname=str(font_file), weight=400)  # normal
-# fp_bold = FontProperties(fname=str(font_file), weight=700)  # bold
-# plt.rcParams["axes.unicode_minus"] = False
+font_file = Path(__file__).parent / "fonts" / "NotoSansSC-SemiBold.ttf" 
+fontManager.addfont(str(font_file)) 
+mpl.rcParams["font.family"] = "Noto Sans SC" 
+mpl.rcParams["axes.unicode_minus"] = False
 
 
 from dashboard.data_io import load_data
@@ -76,11 +49,11 @@ with col_right:
 
         with tab1:
             df1_f = pills_filters(df_1, key_prefix="t1")
-            plot_maturity(df1_f, fp_bold=fp_bold, fp_reg=fp_reg)
+            plot_maturity(df1_f)#, fp_bold=fp_bold, fp_reg=fp_reg)
 
         with tab2:
             df1_gap = gap_filters(df_1, key_prefix="t2gap") 
-            plot_gap(df1_gap)             
+            plot_gap(df1_gap)#, fp_bold=fp_bold, fp_reg=fp_reg)             
 
         with tab3:
             show_alignment_scatter(df_1, df_3)

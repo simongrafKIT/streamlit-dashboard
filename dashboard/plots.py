@@ -13,7 +13,7 @@ from dashboard.utils import wrap_text
 
     
 
-def polar_base(categories, dim_map, fp_bold, fp_reg):
+def polar_base(categories, dim_map):#, fp_bold, fp_reg):
     """Create base polar chart with dimension bands + indicator labels."""
     N = len(categories)
     angles = np.linspace(0, 2*np.pi, N, endpoint=False)
@@ -54,7 +54,7 @@ def polar_base(categories, dim_map, fp_bold, fp_reg):
         else: offset = 0.9
         ax.text(mid, outer_bottom+offset, dim_label,
                 rotation=ang_deg, rotation_mode="anchor",
-                ha="center", va="center", fontsize=9, fontproperties=fp_bold, color="black")
+                ha="center", va="center", fontsize=9, color="black", fontweight="bold")
         start += w
 
     label_r, wrap_w = 4.5, 13
@@ -63,7 +63,7 @@ def polar_base(categories, dim_map, fp_bold, fp_reg):
         ang_deg = 360 - np.degrees(th)
         if 100 <= ang_deg <= 280: ang_deg += 180
         ax.text(th, label_r, "\n".join(wrap_text(cat, wrap_w).split("\n")),
-                rotation=ang_deg, ha="center", va="center", fontsize=7)#, fontweight="bold")
+                rotation=ang_deg, ha="center", va="center", fontsize=7, fontweight="bold")
     return fig, ax, angles, sector_w
 
 def _draw_questions(ax, df, cat, theta, sector_w):
@@ -72,13 +72,13 @@ def _draw_questions(ax, df, cat, theta, sector_w):
         if len(q): ax.text(theta+sector_w/2, level-0.2, wrap_text(q[0], 20),
                            ha="center", va="center", fontsize=5, color="black")
 
-def plot_maturity(df, fp_bold, fp_reg):
+def plot_maturity(df):#, fp_bold, fp_reg):
     # plt.rcParams['font.sans-serif'] = ['SimHei']   
     plt.rcParams['axes.unicode_minus'] = False     
 
     dim_map = dict(zip(df["INDICATOR | 指标"], df["DIMENSION | 维度"]))
     cats = df["INDICATOR | 指标"].unique().tolist()
-    fig, ax, angles, sector_w = polar_base(cats, dim_map, fp_bold=fp_bold, fp_reg=fp_reg)
+    fig, ax, angles, sector_w = polar_base(cats, dim_map)#, fp_bold, fp_reg)
 
     df["RESPONSE_NUMBER"] = (df["RESPONSE_NUMBER"].fillna(-1).astype(int))
 
@@ -126,7 +126,7 @@ def plot_maturity(df, fp_bold, fp_reg):
         title="Maturity level | 成熟度水平",
         title_fontsize=9,          
         fontsize=7,                
-        prop=fp_reg,              
+        #prop=fp_bold,              
         loc="lower center",
         bbox_to_anchor=(0.5, -0.14),
         ncol=3,
@@ -135,7 +135,7 @@ def plot_maturity(df, fp_bold, fp_reg):
         framealpha=0.9,
         borderpad=1.2,
     )
-    leg.get_title().set_fontproperties(fp_bold)
+    #leg.get_title().set_fontproperties(fp_bold)
     #leg.get_title().set_fontproperties(fontP)
     #leg.get_frame().set_edgecolor("gray")
 
@@ -155,11 +155,11 @@ def plot_maturity(df, fp_bold, fp_reg):
     )
     fig.savefig("maturity_results_local.png", dpi=600, bbox_inches="tight", pad_inches=0.05)
 
-def plot_gap(df1):
+def plot_gap(df1):#, fp_bold, fp_reg):
 
     dim_map = dict(zip(df1["INDICATOR | 指标"], df1["DIMENSION | 维度"]))
     cats = df1["INDICATOR | 指标"].unique().tolist()
-    fig, ax, angles, sector_w = polar_base(cats, dim_map)
+    fig, ax, angles, sector_w = polar_base(cats, dim_map)#, fp_bold=fp_bold, fp_reg=fp_reg)
 
     df1["RESPONSE_NUMBER"] = (df1["RESPONSE_NUMBER"].fillna(-1).astype(int)
                              )
