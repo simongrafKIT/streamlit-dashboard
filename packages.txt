@@ -1,0 +1,3 @@
+fonts-noto-cjk
+fonts-noto-color-emoji
+fonts-wqy-zenhei
