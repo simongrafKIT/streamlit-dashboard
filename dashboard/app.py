@@ -4,12 +4,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import streamlit as st
-from matplotlib.font_manager import FontProperties
 from matplotlib.font_manager import fontManager
-# from matplotlib.font_manager import fontManager  # nur nötig, wenn du addfont() verwenden willst
-
-# Falls du KEIN Global-Font setzen willst (empfohlen bei Variable Font):
-# -> Kein rcParams['font.sans-serif'] hier setzen, um Konflikte zu vermeiden
 
 
 _pkg_dir = Path(__file__).resolve().parent
@@ -29,8 +24,8 @@ from dashboard.ui import file_uploader_left, pills_filters, gap_filters, dim_ind
 from dashboard.tab_questions import render_questions_table
 from dashboard.alignment import show_alignment_scatter
 
-st.set_page_config(page_title="Lean & Digital Transformation Dashboard", layout="wide")
-st.title("Dashboard for Lean and Digital Transformation")
+st.set_page_config(page_title="Dashboard for Targeted Transformation", layout="wide")
+st.title("Dashboard for Targeted Transformation")
 
 col_left, col_right = st.columns([1, 5])
 
@@ -49,12 +44,11 @@ with col_right:
 
         with tab1:
             df1_f = pills_filters(df_1, key_prefix="t1")
-            plot_maturity(df1_f)#, fp_bold=fp_bold, fp_reg=fp_reg)
+            plot_maturity(df1_f)
 
         with tab2:
             df1_gap = gap_filters(df_1, key_prefix="t2gap") 
-            plot_gap(df1_gap)#, fp_bold=fp_bold, fp_reg=fp_reg)             
-
+            plot_gap(df1_gap)
         with tab3:
             show_alignment_scatter(df_1, df_3)
             

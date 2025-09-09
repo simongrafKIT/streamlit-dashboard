@@ -97,7 +97,9 @@ def gap_filters(df1, key_prefix="gap"):
         )
 
     if sel_buckets and len(sel_buckets) < len(buckets):
-        out.loc[~out["BUCKET"].isin(sel_buckets), "BUCKET"] = "HIDE"
+        out.loc[~out["BUCKET"].isin(sel_buckets), "DIFF"] = 0
+    # if sel_buckets and len(sel_buckets) < len(buckets):
+    #     out.loc[~out["BUCKET"].isin(sel_buckets), "BUCKET"] = "HIDE"
 
     if sel_dims and len(sel_dims) < len(dimensions):
         out = out[out["DIMENSION | 维度"].isin(sel_dims)]

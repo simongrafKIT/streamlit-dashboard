@@ -149,7 +149,7 @@ def show_alignment_scatter(df_1: pd.DataFrame, df_3: pd.DataFrame) -> None:
             textfont=dict(family="Arial", size=16, color="black"),  # Arial
             name=f"{prio}. {indicator}",   # Legende auch sortiert
             showlegend=True,
-            marker=dict(size=35, color=color, #opacity=0,
+            marker=dict(size=28, color=color, #opacity=0,
                         line=dict(width=1.5, color="rgba(0,0,0,0.45)")),
             customdata=[[indicator, dim, xo, yo, impact]],
             hovertemplate=(
@@ -190,10 +190,10 @@ def show_alignment_scatter(df_1: pd.DataFrame, df_3: pd.DataFrame) -> None:
             #title=dict(text="Indicators"),
             orientation="h",
             x=0, xanchor="left",
-            y=-0.15, yanchor="top",
+            y=-0.18, yanchor="top",
             entrywidth=1/3,              # 3 Spalten (jede Legendenkachel = 1/3 Breite)
             entrywidthmode="fraction",   # "fraction" statt Pixel
-            font=dict(size=18, color="black"),
+            font=dict(size=16, color="black"),
             bgcolor="rgba(255,255,255,0.85)",
             bordercolor="rgba(0,0,0,0.2)",
             borderwidth=1
