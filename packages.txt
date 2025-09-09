@@ -1,3 +1,2 @@
-fonts-noto-cjk
-fonts-noto-color-emoji
-fonts-wqy-zenhei
+language-pack-zh*
+chinese*
