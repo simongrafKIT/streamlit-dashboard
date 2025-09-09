@@ -79,7 +79,7 @@ def plot_maturity(df, fp_bold, fp_reg):
 
     dim_map = dict(zip(df["INDICATOR | 指标"], df["DIMENSION | 维度"]))
     cats = df["INDICATOR | 指标"].unique().tolist()
-    fig, ax, angles, sector_w = polar_base(cats, dim_map, fp_bold, fp_reg)
+    fig, ax, angles, sector_w = polar_base(cats, dim_map, fp_bold=fp_bold, fp_reg=fp_reg)
 
     df["RESPONSE_NUMBER"] = (df["RESPONSE_NUMBER"].fillna(-1).astype(int))
 
