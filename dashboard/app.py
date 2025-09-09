@@ -6,7 +6,7 @@ import streamlit as st
 from matplotlib.font_manager import fontManager
 from pathlib import Path
 
-rcParams['font.sans-serif'] = ['SimHei']   
+rcParams['font.sans-serif'] = ['Arial Unicode MS']   
 rcParams['axes.unicode_minus'] = False     
 
 # rcParams["font.family"] = "sans-serif"
