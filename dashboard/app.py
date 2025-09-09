@@ -6,7 +6,7 @@ import streamlit as st
 from matplotlib.font_manager import fontManager
 from pathlib import Path
 
-rcParams['font.sans-serif'] = ['Arial Unicode MS']   
+rcParams['font.sans-serif'] = ['SimHei']   
 rcParams['axes.unicode_minus'] = False     
 
 # rcParams["font.family"] = "sans-serif"
@@ -18,10 +18,10 @@ _parent  = _pkg_dir.parent
 if str(_parent) not in sys.path:
     sys.path.insert(0, str(_parent))
 
-# font_file = Path(__file__).parent / "fonts" / "NotoSansSC-VariableFont_wght.ttf"
-# fontManager.addfont(str(font_file))
-# plt.rcParams["font.family"] = "Noto Sans SC"
-# plt.rcParams["axes.unicode_minus"] = False
+font_file = Path(__file__).parent / "fonts" / "NotoSansSC-VariableFont_wght.ttf"
+fontManager.addfont(str(font_file))
+plt.rcParams["font.family"] = "Noto Sans SC"
+plt.rcParams["axes.unicode_minus"] = False
 
 
 from dashboard.data_io import load_data
