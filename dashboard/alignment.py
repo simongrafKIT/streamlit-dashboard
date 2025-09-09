@@ -193,7 +193,7 @@ def show_alignment_scatter(df_1: pd.DataFrame, df_3: pd.DataFrame) -> None:
             y=-0.25, yanchor="top",
             entrywidth=1/3,              # 3 Spalten (jede Legendenkachel = 1/3 Breite)
             entrywidthmode="fraction",   # "fraction" statt Pixel
-            font=dict(size=16, color="black"),
+            font=dict(size=12, color="black"),
             bgcolor="rgba(255,255,255,0.85)",
             bordercolor="rgba(0,0,0,0.2)",
             borderwidth=1
