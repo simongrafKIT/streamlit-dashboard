@@ -7,11 +7,11 @@ The tool enables users to assess maturity levels, analyze performance gaps, and 
 
 ## 🔧 Features
 
-- Maturity Assessment Visualization – Plot current vs. target state for different dimensions
+- Maturity Assessment Visualization – Plot current state for different dimensions
 - Gap Analysis – Identify the largest performance gaps at a glance
-- Measure Prioritization – Rank improvement actions based on impact and feasibility
-- Upload / Load Assessment Data (CSV or internal database support planned)
-- Download Reports (future feature)
+- Measure Prioritization – Rank improvement actions based on maturity gap and utility
+- Upload / Load Assessment Data (Excel template)
+- Download Reports
 
 ---
 
@@ -47,3 +47,4 @@ Requires Python 3.9+
     │   └── utils.py            # Aux. function
     ├── requirements.txt
     └── README.md
+
